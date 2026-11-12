@@ -1,0 +1,74 @@
+from django.urls import path
+
+from .views import (
+    TicketListCreateAPIView,
+    TicketDetailAPIView,
+    TicketStatusUpdateAPIView,
+    TicketAIReviewAPIView,
+TicketCommentListCreateAPIView,
+TicketStatusHistoryAPIView,
+    DashboardAnalyticsAPIView,
+    MonthlyTicketAnalyticsAPIView,
+    NotificationListAPIView,
+NotificationMarkReadAPIView,
+    PublicHomepageStatsAPIView,
+)
+
+
+urlpatterns = [
+    path(
+        '',
+        TicketListCreateAPIView.as_view(),
+        name='ticket-list-create'
+    ),
+    path(
+        '<int:pk>/',
+        TicketDetailAPIView.as_view(),
+        name='ticket-detail'
+    ),
+    path(
+        '<int:pk>/status/',
+        TicketStatusUpdateAPIView.as_view(),
+        name='ticket-status-update'
+    ),
+    path(
+        '<int:pk>/ai-review/',
+        TicketAIReviewAPIView.as_view(),
+        name='ticket-ai-review'
+    ),
+path(
+    '<int:pk>/comments/',
+    TicketCommentListCreateAPIView.as_view(),
+    name='ticket-comments'
+),
+path(
+    '<int:pk>/history/',
+    TicketStatusHistoryAPIView.as_view(),
+    name='ticket-status-history'
+),
+path(
+    'dashboard-analytics/',
+    DashboardAnalyticsAPIView.as_view(),
+    name='dashboard-analytics'
+),
+path(
+    'monthly-analytics/',
+    MonthlyTicketAnalyticsAPIView.as_view(),
+    name='monthly-ticket-analytics'
+),
+path(
+    'notifications/',
+    NotificationListAPIView.as_view(),
+    name='notification-list'
+),
+path(
+    'notifications/<int:pk>/read/',
+    NotificationMarkReadAPIView.as_view(),
+    name='notification-mark-read'
+),
+path(
+    'public-homepage-stats/',
+    PublicHomepageStatsAPIView.as_view(),
+    name='public-homepage-stats'
+),
+]

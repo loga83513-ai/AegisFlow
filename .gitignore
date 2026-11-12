@@ -1,0 +1,41 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Database
+*.sqlite3
+*.db
+
+# Django
+staticfiles/
+media/
+
+# Celery
+celerybeat-schedule*
+
+# Frontend dependencies
+**/node_modules/
+
+# Frontend build files
+**/dist/
+**/build/
+
+# IDE
+.idea/
+.vscode/
+
+# Operating system
+.DS_Store
+Thumbs.db
